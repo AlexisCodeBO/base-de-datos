@@ -1,0 +1,245 @@
+Microsoft Windows [Versión 10.0.10240]
+(c) 2015 Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\USUARIO2-3>CD..
+
+C:\Users>CD..
+
+C:\>xampp
+"xampp" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+C:\>xampp
+"xampp" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.8-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> row database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'row database' at line 1
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| examenfinal        |
+| examenfinal2       |
+| information_schema |
+| mundo              |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| world              |
++--------------------+
+9 rows in set (0.08 sec)
+
+MariaDB [(none)]> create database cliente
+    -> create database cliente;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'create database cliente' at line 2
+MariaDB [(none)]> create database cliente;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| cliente            |
+| examenfinal        |
+| examenfinal2       |
+| information_schema |
+| mundo              |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| world              |
++--------------------+
+10 rows in set (0.00 sec)
+
+MariaDB [(none)]> USE cliente ;
+Database changed
+MariaDB [cliente]> CREATE table datos;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [cliente]> CREATE table datos;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [cliente]> create table datos;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [cliente]> create table datos(ID tinyint(2) Primary Key auto_increment , nombre varchar(45) NOT NULL , TelefonoC int(10), precio float(4,2) default 0);
+Query OK, 0 rows affected (0.25 sec)
+
+MariaDB [cliente]> show tables;
++-------------------+
+| Tables_in_cliente |
++-------------------+
+| datos             |
++-------------------+
+1 row in set (0.02 sec)
+
+MariaDB [cliente]> describe datos;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| ID        | tinyint(2)  | NO   | PRI | NULL    | auto_increment |
+| nombre    | varchar(45) | NO   |     | NULL    |                |
+| TelefonoC | int(10)     | YES  |     | NULL    |                |
+| precio    | float(4,2)  | YES  |     | 0.00    |                |
++-----------+-------------+------+-----+---------+----------------+
+4 rows in set (0.05 sec)
+
+MariaDB [cliente]> create table otros_datos(APaterno varchar(25), CI int (8) Primary key, AMaternoC varchar(25), Num_hijos int (2), NIT int(10), Seguro_social varchar(50));
+Query OK, 0 rows affected (0.22 sec)
+
+MariaDB [cliente]> describe otros_datos;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| APaterno      | varchar(25) | YES  |     | NULL    |       |
+| CI            | int(8)      | NO   | PRI | NULL    |       |
+| AMaternoC     | varchar(25) | YES  |     | NULL    |       |
+| Num_hijos     | int(2)      | YES  |     | NULL    |       |
+| NIT           | int(10)     | YES  |     | NULL    |       |
+| Seguro_social | varchar(50) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+MariaDB [cliente]> create table terceros_datos(edad tinyint(3));
+Query OK, 0 rows affected (0.23 sec)
+
+MariaDB [cliente]> ALTER TABLE terceros_datos(Nro_venta int(3) auto_increment);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(Nro_venta int(3) auto_increment)' at line 1
+MariaDB [cliente]> ALTER TABLE terceros_datos(Nro_venta int (3) auto_inc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(Nro_venta int (3) auto_inc' at line 1
+MariaDB [cliente]> descrie terceros_datos;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'descrie terceros_datos' at line 1
+MariaDB [cliente]> describe terceros_datos;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| edad  | tinyint(3) | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+1 row in set (0.02 sec)
+
+MariaDB [cliente]> ALTER TABLE terceros_datos Nro_venta int (3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'int (3)' at line 1
+MariaDB [cliente]> ALTER TABLE terceros_datos Nro_venta int(3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'int(3)' at line 1
+MariaDB [cliente]> ALTER TABLE terceros_datos ADD Nro_venta int(3);
+Query OK, 0 rows affected (0.45 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [cliente]> describe terceros_datos;
++-----------+------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+------------+------+-----+---------+-------+
+| edad      | tinyint(3) | YES  |     | NULL    |       |
+| Nro_venta | int(3)     | YES  |     | NULL    |       |
++-----------+------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+MariaDB [cliente]> DROP table terceros_datos DROP Nro_venta;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DROP Nro_venta' at line 1
+MariaDB [cliente]> alter table terceros_datos DROP Nro_venta;
+Query OK, 0 rows affected (0.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [cliente]> describe terceros_datos;
++-------+------------+------+-----+---------+-------+
+| Field | Type       | Null | Key | Default | Extra |
++-------+------------+------+-----+---------+-------+
+| edad  | tinyint(3) | YES  |     | NULL    |       |
++-------+------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+MariaDB [cliente]> ALTER TABLE terceros_datos ADD NRO_VENTA after edad;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'after edad' at line 1
+MariaDB [cliente]> Bye
+Ctrl-C -- exit!
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 10.1.8-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use cliente;
+Database changed
+MariaDB [cliente]> ALTER TABLE terceros_datos ADD NRO_VENTA before edad;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'before edad' at line 1
+MariaDB [cliente]> ALTER TABLE terceros_datos ADD NRO_VENTA after edad;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'after edad' at line 1
+MariaDB [cliente]> ALTER TABLE terceros_datos ADD NRO_VENTA int(4) after edad;
+Query OK, 0 rows affected (0.39 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [cliente]> ALTER TABLE terceros_datos MODIFY NRO_VENTA int (5);
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [cliente]> describe terceros_datos;
++-----------+------------+------+-----+---------+-------+
+| Field     | Type       | Null | Key | Default | Extra |
++-----------+------------+------+-----+---------+-------+
+| edad      | tinyint(3) | YES  |     | NULL    |       |
+| NRO_VENTA | int(5)     | YES  |     | NULL    |       |
++-----------+------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [cliente]> ALTER TABLE terceros_datos NRO_VENTA CHANGE ventas;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CHANGE ventas' at line 1
+MariaDB [cliente]> ALTER TABLE tercerosdatos CHANGE NRO_VENTA ventas;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+MariaDB [cliente]> ALTER TABLE terceros_datos CHANGE NRO_VENTA ventas int(5);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [cliente]> describe terceros_datos;
++--------+------------+------+-----+---------+-------+
+| Field  | Type       | Null | Key | Default | Extra |
++--------+------------+------+-----+---------+-------+
+| edad   | tinyint(3) | YES  |     | NULL    |       |
+| ventas | int(5)     | YES  |     | NULL    |       |
++--------+------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+MariaDB [cliente]> RENAME TABLE terceros_datos to masdatos;
+Query OK, 0 rows affected (0.16 sec)
+
+MariaDB [cliente]> SELECT edad FROM masdatos;
+Empty set (0.00 sec)
+
+MariaDB [cliente]> INSERT INTO masdatos(edad, ventas)
+    -> VALUES(20, 0198);
+Query OK, 1 row affected (0.03 sec)
+
+MariaDB [cliente]> insert into  masdatos(edad, ventas)
+    -> VALUES(21, 0199);
+Query OK, 1 row affected (0.02 sec)
+
+MariaDB [cliente]> SELECT * FROM masdatos;
++------+--------+
+| edad | ventas |
++------+--------+
+|   20 |    198 |
+|   21 |    199 |
++------+--------+
+2 rows in set (0.00 sec)
+
+MariaDB [cliente]>

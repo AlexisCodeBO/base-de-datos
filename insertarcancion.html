@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario Canción</title>
+	<style type="text/css">
+		form ul {
+			list-style: none;
+			float: center;
+		}
+		form ul li{
+			margin-bottom: .5em;
+			
+		}
+
+	</style>
+</head>
+<body>
+    <h3 style="border: ridge #0f0fef 1px"> Tabla Canción </h3>
+	<form action="insertar.php" method="POST" id="cal" >
+		
+		
+		<ul>
+		
+		<li><label for="f">Nuevo dato Título: </label><input type="text" name="f" id="f" placeholder=""></li>
+		<li><label for="g">Nuevo dato Duración: </label><input type="text" name="g" id="g" placeholder=""></li>
+		<li><label for="h">Nuevo dato Género: </label><input type="text" name="h" id="h" placeholder=""></li>
+		<li><label for="i">Nuevo dato Artista principal: </label><input type="text" name="i" id="i" placeholder=""></li>
+		<li><label for="j">Nuevo dato Artistas secundarios: </label><input type="text" name="j" id="j" placeholder=""></li>
+		<li><label for="k">Nuevo dato id_Álbum: </label><input type="text" name="k" id="k" placeholder=""></li>
+
+		
+		</ul>
+		<input type="submit" value="Ingresar">
+	</form>
+	
+</body>
+</html>
